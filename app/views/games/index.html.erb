@@ -1,0 +1,26 @@
+<h3 class='text-center'> SELECT YOUR BET </h3>
+
+<div class='container-fluid center-container'>
+  <div class='row'>
+    <div class='col-md-3'>
+      <%= link_to play_games_path(id: 'rock') do %>
+        <%= image_tag('rock.svg', width: '100', height: '100') %>
+      <% end %>
+    </div>
+    <div class='col-md-3'>
+      <%= link_to play_games_path(id: 'paper') do %>
+        <%= image_tag('paper.svg', width: '100', height: '100') %>
+      <% end %>
+    </div>
+    <div class='col-md-3'>
+      <%= link_to play_games_path(id: 'scissors') do %>
+        <%= image_tag('scissors.svg', width: '100', height: '100') %>
+      <% end %>
+    </div>
+    <div class='col-md-3'>
+      <%= link_to play_games_path(id: 'hammer') do %>
+        <%= image_tag('hammer.svg', width: '100', height: '100') %>
+      <% end %>
+    </div>
+  </div>
+</div>
