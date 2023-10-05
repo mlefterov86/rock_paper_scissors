@@ -1,0 +1,14 @@
+<% if @result.present? %>
+  <% if invalid?(@result) %>
+    <%= render 'invalid' %>
+  <% else %>
+    <%= render 'success' %>
+  <% end %>
+<% end %>
+
+<br />
+
+<div class='d-flex justify-content-center'>
+  <%= link_to 'Play again', games_path, class: 'btn btn-primary' %>
+</div>
+

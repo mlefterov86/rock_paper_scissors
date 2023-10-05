@@ -2,15 +2,30 @@
 <html>
   <head>
     <title>RockPaperScissors</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name='viewport' content='width=device-width,initial-scale=1'>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%#= stylesheet_link_tag 'application', 'data-turbo-track': 'reload' %>
     <%= javascript_importmap_tags %>
+    <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css'>
+    <style>
+        /* Center the container vertically and horizontally */
+        .center-container {
+          display: flex;
+          justify-content: center;
+          min-height: 100vh; /* Ensure full viewport height */
+        }
+    </style>
   </head>
 
   <body>
-    <%= yield %>
+    <div class='center-container'>
+      <div class='container mt-5'>
+        <%= render 'layouts/intro' %>
+
+        <%= yield %>
+      </div>
+    </div>
   </body>
 </html>
