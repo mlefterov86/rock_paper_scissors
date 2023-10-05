@@ -12,7 +12,7 @@ class Game
 
   attr_reader :player_choice
 
-  validates :player_choice, presence: true
+  validates :player_choice, inclusion: { in: RULES.keys }
 
   def initialize(player_choice:)
     @player_choice = player_choice&.to_sym
