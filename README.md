@@ -1,24 +1,19 @@
 # README
+## Description
+Ruby on rails app for the 'Rock paper scissors' game, with additional rule of 'Hammer'.
+- Rock beats Scissors
+- Scissors cut Paper
+- Paper covers Rock
+- !!! Hammer can defeat Scissors and Paper but loses to Rock !!!
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+#### Rails version 7.0.8
+#### Ruby version 3.2.2
 
-Things you may want to cover:
+## Installation
+* clone [repository](https://github.com/mlefterov86/rock_paper_scissors)
+* navigate to the created directory
+* run -> `bundle intall`
+* run unit test locally `bundle exec rspec` (OPTIONAL) - provides unit tests suit, covering the project's classes
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Running the project
+run project by executing `rails server`, and then visit `http://localhost:3000` in your browser
