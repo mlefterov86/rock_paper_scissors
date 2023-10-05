@@ -3,19 +3,19 @@
 require 'rails_helper'
 
 RSpec.describe GameHelper do
-  describe '#show_result' do
-    let(:result) { %i[player computer tie].sample }
+  describe '#show_winner' do
+    let(:result) { %i[player computer].sample }
 
     context 'when it is a tie' do
       let(:result) { :tie }
 
       it "returns 'It is tie!' for :tie result" do
-        expect(show_result(result)).to eq('It is tie!')
+        expect(show_winner(result)).to eq('It is tie!')
       end
     end
 
     it "returns '<Result> wins!' for non-tie result" do
-      expect(show_result(result)).to eq("#{result.capitalize} wins!")
+      expect(show_winner(result)).to eq("#{result.capitalize} wins!")
     end
   end
 
