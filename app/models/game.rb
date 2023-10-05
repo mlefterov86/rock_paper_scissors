@@ -22,13 +22,25 @@ class Game
     Rails.logger.info("### Player choice `#{player_choice}`")
     Rails.logger.info("### Computer choice `#{computer_choice}`")
 
-    return :player if RULES[player_choice].include?(computer_choice)
-    return :computer if RULES[computer_choice].include?(player_choice)
+    winner
+  end
+
+  private
+
+  def winner
+    return :player if player_wins?
+    return :computer if computer_wins?
 
     :tie
   end
 
-  private
+  def player_wins?
+    RULES[player_choice].include?(computer_choice)
+  end
+
+  def computer_wins?
+    RULES[computer_choice].include?(player_choice)
+  end
 
   # requests `https://5eddt4q9dk.execute-api.us-east-1.amazonaws.com/rps-stage/throw`
   # from https://curbrockpaperscissors.docs.apiary.io/#reference/0/throws/retrieve-throw

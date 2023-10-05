@@ -1,5 +1,5 @@
-<% if @result.present? %>
-  <% if invalid?(@result) %>
+<% if @winner.present? %>
+  <% if invalid?(@winner) %>
     <%= render 'invalid' %>
   <% else %>
     <%= render 'success' %>

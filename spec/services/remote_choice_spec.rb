@@ -18,7 +18,7 @@ RSpec.describe RemoteChoice do
   def stub_mock_url
     allow(remote_choice).to receive(:api_url).and_return(RemoteChoice::CURB_MOCK_RPS_URL)
 
-    stub_request(:get, 'https://private-anon-4b42eef306-curbrockpaperscissors.apiary-mock.com/rps-stage/throw')
+    stub_request(:get, RemoteChoice::CURB_MOCK_RPS_URL)
       .with(headers: headers.merge('Host' => 'private-anon-4b42eef306-curbrockpaperscissors.apiary-mock.com'))
       .to_return(status: 200, body: success_response_body)
   end

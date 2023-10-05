@@ -12,12 +12,12 @@ RSpec.describe GamesController do
 
   describe 'GET #play' do
     let(:player_choice) { Game::RULES.keys.sample.to_s }
-    let(:result) { %i[player computer tie].sample }
+    let(:winner) { %i[player computer tie].sample }
     let(:game) { Game.new(player_choice:) }
 
     before do
       allow(controller).to receive(:game).and_return(game)
-      allow(game).to receive(:play).and_return(result)
+      allow(game).to receive(:play).and_return(winner)
 
       get :play, params: { id: player_choice }
     end
@@ -26,8 +26,8 @@ RSpec.describe GamesController do
       expect(assigns(:player_choice)).to eq(player_choice)
     end
 
-    it 'assigns @result' do
-      expect(result).to eq(assigns(:result))
+    it 'assigns @winner' do
+      expect(winner).to eq(assigns(:winner))
     end
 
     it 'returns a successful response' do
@@ -43,8 +43,8 @@ RSpec.describe GamesController do
 
       before { allow(game).to receive(:valid?).and_return(false) }
 
-      it 'assigns @result' do
-        expect(assigns(:result)).to eq :invalid
+      it 'assigns @winner' do
+        expect(assigns(:winner)).to eq :invalid
       end
     end
   end

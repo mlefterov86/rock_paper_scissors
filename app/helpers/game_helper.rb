@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
 module GameHelper
-  def show_result(result)
-    return 'It is tie!' if result == :tie
+  def show_winner(winner)
+    return 'It is tie!' if winner.to_sym == :tie
 
-    "#{result.capitalize} wins!"
+    "#{winner.capitalize} wins!"
   end
 
-  def invalid?(result)
-    result == :invalid
+  def invalid?(winner)
+    winner == :invalid
   end
 end

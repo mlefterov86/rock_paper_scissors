@@ -5,7 +5,7 @@ class GamesController < ApplicationController
 
   def play
     @player_choice = player_choice
-    @result = game.valid? ? game.play : :invalid
+    @winner = game.valid? ? game.play : :invalid
   end
 
   private
