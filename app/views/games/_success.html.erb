@@ -1,4 +1,4 @@
-<h4 class='text-center'><%= "Computer choice: #{@game.send(:computer_choice)}" %></h4>
+<h4 class='text-center'><%= "Computer choice: #{@game.send(:winner).send(:computer_choice)}" %></h4>
 <h4 class='text-center'><%= "Player choice: #{@player_choice}" %></h4>
 
 <h2 class='text-center'>Winner:</h2>
