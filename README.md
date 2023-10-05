@@ -12,7 +12,7 @@ Ruby on rails app for the 'Rock paper scissors' game, with additional rule of 'H
 ## Installation
 * clone [repository](https://github.com/mlefterov86/rock_paper_scissors)
 * navigate to the created directory
-* run -> `bundle intall`
+* run -> `bundle install`
 * run unit test locally `bundle exec rspec` (OPTIONAL) - provides unit tests suit, covering the project's classes
 
 ## Running the project
