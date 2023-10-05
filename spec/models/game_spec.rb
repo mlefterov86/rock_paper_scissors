@@ -5,6 +5,7 @@ require 'rails_helper'
 
 RSpec.describe Game do
   let(:game) { described_class.new(player_choice: :rock) }
+  let(:winner_instance) { instance_double('Winner', computer_choice: :scissors) }
 
   describe '#initialize' do
     context 'with a valid player choice' do
@@ -50,45 +51,21 @@ RSpec.describe Game do
   end
 
   describe '#play' do
+    before { allow(game).to receive(:winner).and_return(winner_instance) }
+
     it 'returns :player when player wins' do
-      allow(game).to receive(:computer_choice).and_return(:scissors)
+      allow(winner_instance).to receive(:call).and_return(:player)
       expect(game.play).to eq(:player)
     end
 
     it 'returns :computer when computer wins' do
-      allow(game).to receive(:computer_choice).and_return(:paper)
+      allow(winner_instance).to receive(:call).and_return(:computer)
       expect(game.play).to eq(:computer)
     end
 
     it "returns :tie when it's a tie" do
-      allow(game).to receive(:computer_choice).and_return(:rock)
+      allow(winner_instance).to receive(:call).and_return(:tie)
       expect(game.play).to eq(:tie)
-    end
-  end
-
-  describe '#winner' do
-    it 'returns :player' do
-      allow(game).to receive(:player_wins?).and_return(true)
-      expect(game.send(:winner)).to eq :player
-    end
-
-    it 'returns :computer' do
-      allow(game).to receive(:player_wins?).and_return(false)
-      allow(game).to receive(:computer_wins?).and_return(true)
-      expect(game.send(:winner)).to eq :computer
-    end
-
-    it 'returns :tie' do
-      allow(game).to receive(:player_wins?).and_return(false)
-      allow(game).to receive(:computer_wins?).and_return(false)
-      expect(game.send(:winner)).to eq :tie
-    end
-  end
-
-  describe '#computer_choice' do
-    it 'returns a valid choice' do
-      allow(game).to receive(:remote_result).and_return(:scissors)
-      expect(game.send(:computer_choice)).to(satisfy { |choice| described_class::RULES.keys.include?(choice) })
     end
   end
 end
